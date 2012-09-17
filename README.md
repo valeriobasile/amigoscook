@@ -20,7 +20,7 @@ specific type of entity (recipes, users, tools, ingredients, pictures).
 
 **GET requests**
 
-* Get a recipe by id
+Get a recipe by id
 
     http://amigoscook.com/recipe/*recipe_id*
     return example:
@@ -32,21 +32,21 @@ specific type of entity (recipes, users, tools, ingredients, pictures).
     "excavates the food"},{"id":7890,"name":"knife","description":
     "cuts the food"}]}
 
-* Get new recipes
+Get new recipes
 
     http://amigoscook.com/recipes/new?count=*max*
     
 Returns up to *count* recipes, starting from the ones with the most recent upload timestamp.
 
-* Get a tool by id
+Get a tool by id
 
     http://amigoscook.com/tool/*tool_id*
 
-* Get an ingredient by id
+Get an ingredient by id
 
     http://amigoscook.com/tool/*tool_id*
 
-* Get a user profile
+Get a user profile
 
     http://amigoscook.com/user/*user_id*
 
@@ -57,13 +57,10 @@ Returns up to *count* recipes, starting from the ones with the most recent uploa
     http://amigoscook.com/search
 GET arguments:
 
-* **type**        "recipe", "tool", "ingredient"
-
-* **q**           search term. The search will return recipes that contains the search term(s) in the name or in the description
-
-* **tool**        id or name of a tool, When searching for recipes, it returns only recipes that use the specified tool
-
-* **ingredient**  id or name of an ingredient. When searching for recipes, it returns only recipes that use the specified ingredient 
+* **type**: "recipe", "tool", "ingredient".
+* **q**: Search term. The search will return recipes that contains the search term(s) in the name or in the description.
+* **tool**: id or name of a tool, When searching for recipes, it returns only recipes that use the specified tool.
+* **ingredient**: id or name of an ingredient. When searching for recipes, it returns only recipes that use the specified ingredient. 
 
 The search API returns a list of recipes.
 
@@ -83,11 +80,11 @@ The search API returns a list of recipes.
 
     http://amigoscook.com/recipe/*recipe_id*/edit
     
-Modify an existent recipe. 
+* Modify an existent recipe. 
 Arguments:
     name (string)
     
-Add picture to text
+* Add picture to text
 
     http://amigoscook.com/recipe/*recipe_id*/add_picture
 
@@ -100,12 +97,12 @@ Arguments:
     text_from (integer offset)
     text_to (integer offset)
 
-Add/edit ingredients
+* Add/edit ingredients
 
     http://amigoscook.net/ingredient/*ingredient_id*/new
     http://amigoscook.net/ingredient/*ingredient_id*/edit
 
-Add/edit tools
+* Add/edit tools
 
     http://amigoscook.net/tool/*tool_id*/new
     http://amigoscook.net/tool/*tool_id*/edit
