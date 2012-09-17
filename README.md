@@ -22,7 +22,7 @@ specific type of entity (recipes, users, tools, ingredients, pictures).
 
 * Get a recipe by id
 
-    http://amigoscook.net/recipe/*recipe_id*
+    http://amigoscook.com/recipe/*recipe_id*
     return example:
     {"id":1234,"name":"lasagna","ingredients":[{"id":5678,"name":
     "tomato sauce","description":"sauce made from tomato"},
@@ -34,73 +34,79 @@ specific type of entity (recipes, users, tools, ingredients, pictures).
 
 * Get new recipes
 
-    http://amigoscook.net/recipes/new?count=*max*
+    http://amigoscook.com/recipes/new?count=*max*
     
 Returns up to *count* recipes, starting from the ones with the most recent upload timestamp.
 
 * Get a tool by id
-    http://amigoscook.net/tool/*tool_id*
+
+    http://amigoscook.com/tool/*tool_id*
 
 * Get an ingredient by id
-    http://amigoscook.net/tool/*tool_id*
+
+    http://amigoscook.com/tool/*tool_id*
 
 * Get a user profile
-    http://amigoscook.net/user/*user_id*
+
+    http://amigoscook.com/user/*user_id*
 
 ---
 
 **search queries**
 
-    http://amigoscook.net/search
+    http://amigoscook.com/search
 GET arguments:
-**type**        "recipe", "tool", "ingredient"
-**q**           search term. The search will return recipes that contains the search term(s)
-in the name or in the description
-**tool**        id or name of a tool, When searching for recipes, it returns only recipes that
-use the specified tool
-**ingredient**  id or name of an ingredient. When searching for recipes, it returns only recipes that
-use the specified ingredient 
+
+* **type**        "recipe", "tool", "ingredient"
+
+* **q**           search term. The search will return recipes that contains the search term(s) in the name or in the description
+
+* **tool**        id or name of a tool, When searching for recipes, it returns only recipes that use the specified tool
+
+* **ingredient**  id or name of an ingredient. When searching for recipes, it returns only recipes that use the specified ingredient 
 
 The search API returns a list of recipes.
 
+---
+
 **POST requests**
 
-    http://amigoscook.net/recipe/new
+    http://amigoscook.com/recipe/new
 
-Creates a new recipe. Arguments:
+* Creates a new recipe. Arguments:
 
     name (string, required)
     text (string, required)
-    ingredients (list of IDs)
-    tools (list of IDs)
     user (ID, required)
     
----
-    http://amigoscook.net/recipe/edit
+* Edit a recipe
+
+    http://amigoscook.com/recipe/*recipe_id*/edit
     
 Modify an existent recipe. 
 Arguments:
-    id (ID, required)
-    name
+    name (string)
+    
+Add picture to text
 
----
-    http://amigoscook.net/recipe/add_picture
+    http://amigoscook.com/recipe/*recipe_id*/add_picture
 
 Uploads a picture linked to a portion of the recipe text.
 If the text span overlaps a previously defined picture link,
 the API call returns an error. 
 Arguments:
 
-    ID
     picture
     text_from (integer offset)
     text_to (integer offset)
 
----
-    http://amigoscook.net/ingredient/new
-    http://amigoscook.net/ingredient/edit
+Add/edit ingredients
 
----
-    http://amigoscook.net/tool/new
-    http://amigoscook.net/tool/edit
+    http://amigoscook.net/ingredient/*ingredient_id*/new
+    http://amigoscook.net/ingredient/*ingredient_id*/edit
+
+Add/edit tools
+
+    http://amigoscook.net/tool/*tool_id*/new
+    http://amigoscook.net/tool/*tool_id*/edit
 
